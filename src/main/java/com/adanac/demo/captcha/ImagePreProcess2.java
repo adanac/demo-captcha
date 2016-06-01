@@ -108,7 +108,7 @@ public class ImagePreProcess2 {
 	public static Map<BufferedImage, String> loadTrainData() throws Exception {
 		if (trainMap == null) {
 			Map<BufferedImage, String> map = new HashMap<BufferedImage, String>();
-			File dir = new File("train2");
+			File dir = new File("train");
 			File[] files = dir.listFiles();
 			for (File file : files) {
 				map.put(ImageIO.read(file), file.getName().charAt(0) + "");
@@ -152,7 +152,7 @@ public class ImagePreProcess2 {
 		for (BufferedImage bi : listImg) {
 			result += getSingleCharOcr(bi, map);
 		}
-		ImageIO.write(img, "JPG", new File("result2//" + result + ".jpg"));
+		ImageIO.write(img, "JPG", new File("result//" + result + ".jpg"));
 		return result;
 	}
 
@@ -205,7 +205,7 @@ public class ImagePreProcess2 {
 	public static void main(String[] args) throws Exception {
 		// downloadImage();
 		for (int i = 0; i < 30; ++i) {
-			String text = getAllOcr("img2//" + i + ".jpg");
+			String text = getAllOcr("img//" + i + ".jpg");
 			System.out.println(i + ".jpg = " + text);
 		}
 	}

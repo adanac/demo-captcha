@@ -44,7 +44,7 @@ public class ImagePreProcess3 {
 		img = img.getSubimage(1, 1, img.getWidth() - 2, img.getHeight() - 2);
 		int width = img.getWidth();
 		int height = img.getHeight();
-		double subWidth = (double) width / 5.0;
+		double subWidth = (double) width / 4.0;
 		for (int i = 0; i < 5; i++) {
 			Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 			for (int x = (int) (1 + i * subWidth); x < (i + 1) * subWidth && x < width - 1; ++x) {
@@ -131,7 +131,7 @@ public class ImagePreProcess3 {
 	}
 
 	public static Map<BufferedImage, String> loadTrainData() throws Exception {
-		if (trainMap == null) {
+		if (trainMap == null || trainMap.size() == 0) {
 			Map<BufferedImage, String> map = new HashMap<BufferedImage, String>();
 			File dir = new File("train");
 			File[] files = dir.listFiles();
@@ -144,7 +144,7 @@ public class ImagePreProcess3 {
 	}
 
 	public static String getSingleCharOcr(BufferedImage img, Map<BufferedImage, String> map) {
-		String result = "#";
+		String result = "";
 		int width = img.getWidth();
 		int height = img.getHeight();
 		int min = width * height;

@@ -24,6 +24,9 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
+
+import com.jhlabs.image.ScaleFilter;
 
 public class CommonUtil {
 	public static void downloadImage(String url, String category) {
